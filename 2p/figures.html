@@ -1,0 +1,59 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<body>
+<div id="my-svg"></div>   
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js"></script>
+<script src="../../libs/kgrs/geometry/Point.js"></script>
+<script src="../../libs/kgrs/geometry/useLine.js"></script>
+<script src="../../libs/kgrs/geometry/useTriangule.js"></script>
+<script src="../../libs/kgrs/geometry/useCircle.js"></script>
+<script src="../../libs/kgrs/geometry/useRectangule.js"></script>
+<script src="../../libs/kgrs/geometry/useSquare.js"></script>
+
+<script>
+var punto= new Point(270,217);
+var punto2= new Point(60,100);
+var punto3= new Point(544,185);
+var punto4= new Point(375,88);
+var punto5= new Point(62,67);
+var punto6= new Point(69,203);
+var punto7= new Point(174, 216);
+var punto8= new Point(449,133);
+var punto9= new Point(171,266);
+
+
+var circulo = new Circle(punto8,60);
+var triangulo = new Triangle(punto5, punto6, punto7);
+var rectangulo = new Rectangle(punto, punto2);
+var linea = new Line(punto3, punto4);
+var cuadrado = new Square(punto9, 80);
+
+var paper = Raphael (document.getElementById('my-svg'), 600, 400);
+
+var rect = paper.rect (0,0,600,400);
+rect.attr('fill','#FFF');
+
+var usingCircle = paper.circle( circulo.p1.x, circulo.p1.y, circulo.r);
+usingCircle.attr("fill","orange");
+usingCircle.attr("stroke","red");
+
+var usingTriangle = paper.path(`M${triangulo.p1.x},${triangulo.p1.y},L${triangulo.p2.x},${triangulo.p2.y},L${triangulo.p3.x},${triangulo.p3.y},L${triangulo.p1.x},${triangulo.p1.y}`);
+usingTriangle.attr("fill","pink");
+usingTriangle.attr("stroke","#43E8C2");
+
+var usingRectangle = paper.rect(rectangulo.p1.x, rectangulo.p1.y, rectangulo.p2.x, rectangulo.p2.y);
+usingRectangle.attr("fill","#FF2F4E");
+usingRectangle.attr("stoke","#75FFAC");
+
+var usingSquare = paper.rect(cuadrado.p1.x, cuadrado.p1.y, cuadrado.l, cuadrado.l);
+usingSquare.attr("fill","#55F6FF");
+usingSquare.attr("stroke","#CD75FF")
+
+var usingLine = paper.path(`M${linea.p1.x},${linea.p1.y},L${linea.p2.x},${linea.p2.y}`);
+usingLine.attr('stroke','blue');
+
+</script>
+</html>

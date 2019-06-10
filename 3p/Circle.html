@@ -1,0 +1,24 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Pagina de karen</title>
+    </head>
+<body>
+    
+    <h1> ES6 modules</h1>
+<div id="my-svg"></div>
+<script src="https://cdn.jsdelivr.net/npm/raphael@2.2.7/raphael.min.js"></script>
+<script type="module">
+    import { Point } from './Point.js';
+    import { Circle } from './Circle.js';
+    var paper=Raphael(document.getElementById("my-svg"),600,400);
+    var punto = new Point(449,133); 
+    var circulo = new Circle(punto,60);
+    var usingCircle = paper.circle( circulo.p1.x, circulo.p1.y, circulo.r);
+    console.log(usingCircle)
+usingCircle.attr("fill","orange");
+usingCircle.attr("stroke","red");
+</script>
+
+</body>
+</html>
